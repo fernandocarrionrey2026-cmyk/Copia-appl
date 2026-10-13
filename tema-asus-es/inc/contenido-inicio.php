@@ -26,7 +26,7 @@ return array(
 	/* Menú lateral (se abre con el botón de las tres rayas).
 	   Cada grupo se separa con una línea. Si un elemento tiene 'sub',
 	   muestra un "+" y se despliega. Si en Apariencia > Menús asignas un menú
-	   a "Menú principal", se usa ese en lugar del primer grupo. */
+	   a "Menú lateral (primer grupo)", se usa ese en lugar del primer grupo. */
 	'menu_lateral' => array(
 		array(
 			array( 'texto' => 'AI', 'url' => '#', 'destacado' => true ),
@@ -47,7 +47,7 @@ return array(
 		),
 	),
 
-	/* Carrusel principal: pasa solo cada 6 segundos */
+	/* Carrusel principal: pasa solo cada 6 segundos (el tiempo se cambia en assets/js/inicio.js) */
 	'carrusel' => array(
 		array(
 			'titulo'    => 'ROG ZEPHYRUS DUO',

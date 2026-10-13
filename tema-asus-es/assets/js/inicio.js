@@ -50,7 +50,8 @@
 		var actual = 0;
 		var pausado = false;
 		var temporizador;
-		var DURACION = 6000;
+		var DURACION = 6000; /* tiempo de cada foto en milisegundos (6000 = 6 segundos) */
+		carrusel.style.setProperty( '--duracion', DURACION + 'ms' );
 
 		var mostrar = function ( n ) {
 			actual = ( n + slides.length ) % slides.length;

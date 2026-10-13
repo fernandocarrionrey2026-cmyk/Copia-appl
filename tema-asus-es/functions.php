@@ -24,7 +24,7 @@ function asus_es_configuracion() {
 	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) );
 
 	register_nav_menus( array(
-		'principal' => __( 'Menú principal (barra superior)', 'asus-es' ),
+		'principal' => __( 'Menú lateral (primer grupo)', 'asus-es' ),
 	) );
 }
 add_action( 'after_setup_theme', 'asus_es_configuracion' );

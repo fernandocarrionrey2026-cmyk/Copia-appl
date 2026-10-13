@@ -315,7 +315,7 @@ img { max-width: 100%; height: auto; }
 	border-radius: 10px;
 }
 
-.punto.activo .progreso { animation: progreso 6s linear forwards; }
+.punto.activo .progreso { animation: progreso var(--duracion, 6s) linear forwards; }
 .pausado .punto.activo .progreso { animation-play-state: paused; }
 
 @keyframes progreso { to { width: 100%; } }
