@@ -40,3 +40,18 @@ Mientras no pongas imágenes, cada sección muestra un círculo de color de mues
 No se usaron los logos ni las fotos de Apple ni de ASUS (son de su propiedad); hay espacios
 listos para poner las tuyas. Los textos siguen el estilo de la página original,
 pero conviene compararlos con la página actual por si cambiaron.
+
+## Tema ASUS: editar con clics (versión 1.1)
+
+El tema `tema-asus-es` trae dos bloques para el editor de WordPress:
+**Carrusel ASUS** y **Cuadros ASUS**, y el patrón **Página de inicio ASUS**.
+
+- Al instalarlo, crea la página **Inicio** con el carrusel y los cuadros y,
+  si tu portada mostraba las últimas entradas, la deja como página de inicio.
+- Para cambiar textos, enlaces y fotos: **Pages → Inicio**, haz clic en el
+  bloque y usa el panel de la derecha. Al final pulsa **Save**.
+- Para usarlos en otras páginas: botón **+** del editor → busca «ASUS».
+- La franja de aviso, el menú lateral y el pie se siguen cambiando en
+  `inc/contenido-inicio.php`.
+
+Guía con imágenes: `capturas/asus-como-editar-con-clics.png`.

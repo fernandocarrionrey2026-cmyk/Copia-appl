@@ -2,7 +2,11 @@
 /**
  * CONTENIDO DE LA PÁGINA DE INICIO
  * ---------------------------------
- * Aquí está todo el texto de la página. Cambia lo que quieras.
+ * Aquí están la franja de aviso, el menú lateral y el pie de página.
+ *
+ * El carrusel y los cuadros se editan con clics en Pages > Inicio
+ * (bloques «Carrusel ASUS» y «Cuadros ASUS»). Lo que está aquí abajo para
+ * 'carrusel' y 'cuadros' son los textos que traen esos bloques al agregarlos.
  *
  * - 'imagen' : nombre de un archivo dentro de assets/img (por ejemplo 'zephyrus.jpg')
  *              o una dirección completa (http://...). Si se deja vacío

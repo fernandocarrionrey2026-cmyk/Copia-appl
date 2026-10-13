@@ -22,6 +22,11 @@ function asus_es_configuracion() {
 		'flex-height' => true,
 	) );
 	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) );
+	add_theme_support( 'align-wide' );
+
+	/* Para que el editor de WordPress muestre los bloques con los colores del tema */
+	add_theme_support( 'editor-styles' );
+	add_editor_style( array( 'assets/css/inicio.css', 'assets/css/editor.css' ) );
 
 	register_nav_menus( array(
 		'principal' => __( 'Menú lateral (primer grupo)', 'asus-es' ),
@@ -68,3 +73,6 @@ function asus_es_fondo( $archivo ) {
 	}
 	return ' style="background-image:url(\'' . esc_url( $url ) . '\')"';
 }
+
+/* Bloques "Carrusel ASUS" y "Cuadros ASUS" para el editor */
+require get_template_directory() . '/inc/bloques.php';

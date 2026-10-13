@@ -1,0 +1,18 @@
+/* Solo para el editor de WordPress */
+
+/* La vista previa no reacciona a los clics: así un clic selecciona el bloque */
+.asus-vista-previa { pointer-events: none; }
+
+/* Aviso azul arriba del bloque seleccionado */
+.asus-ayuda {
+	display: inline-block;
+	margin: 0 0 6px 12px;
+	padding: 6px 12px;
+	border-radius: 4px;
+	background: #006ce1;
+	color: #fff;
+	font: 13px/1.4 -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* En el editor se muestra solo la primera foto del carrusel */
+.asus-vista-previa .diapositiva { transition: none; }

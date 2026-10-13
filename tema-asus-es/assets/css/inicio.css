@@ -509,6 +509,42 @@ img { max-width: 100%; height: auto; }
 .contenido-general { max-width: 980px; margin: 0 auto; padding: 60px 16px; }
 
 /* ==========================================================
+   Páginas (Pages)
+   Los bloques ASUS van a todo el ancho; el resto del contenido
+   (párrafos, imágenes, títulos…) va centrado.
+   ========================================================== */
+.pagina { padding-bottom: 20px; }
+
+.pagina-titulo {
+	width: min(948px, calc(100% - 32px));
+	margin: 50px auto 24px;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+
+.pagina-contenido > * {
+	width: min(948px, calc(100% - 32px));
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pagina-contenido > .carrusel,
+.pagina-contenido > .cuadros,
+.pagina-contenido > .alignfull {
+	width: auto;
+	max-width: none;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.pagina-contenido > .alignwide { width: min(1200px, calc(100% - 32px)); }
+
+.pagina-contenido > * + .carrusel { margin-top: 24px; }
+.pagina-contenido > .carrusel + :not(.cuadros),
+.pagina-contenido > .cuadros + :not(.carrusel) { margin-top: 32px; }
+
+/* ==========================================================
    Tablet y celular
    ========================================================== */
 @media (max-width: 1023px) {

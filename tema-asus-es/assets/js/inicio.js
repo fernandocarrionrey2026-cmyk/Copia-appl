@@ -41,18 +41,31 @@
 		} );
 	}
 
-	/* ---------- Carrusel ---------- */
-	var carrusel = document.getElementById( 'carrusel' );
-	if ( carrusel ) {
+	/* ---------- Carruseles ----------
+	   Funciona con todos los carruseles de la página (el del inicio y los
+	   bloques "Carrusel ASUS" que agregues a tus páginas).
+	   El tiempo de cada foto se elige en el bloque (en segundos);
+	   si no se indica, se usan 6 segundos. */
+	var DURACION_POR_DEFECTO = 6000;
+
+	var iniciarCarrusel = function ( carrusel ) {
 		var slides = carrusel.querySelectorAll( '.diapositiva' );
 		var puntos = carrusel.querySelectorAll( '.punto' );
-		var pausa = document.getElementById( 'pausa' );
+		var pausa = carrusel.querySelector( '.pausa' );
+		var duracion = parseInt( carrusel.getAttribute( 'data-duracion' ), 10 ) || DURACION_POR_DEFECTO;
 		var actual = 0;
 		var pausado = false;
 		var temporizador;
-		var DURACION = 6000; /* tiempo de cada foto en milisegundos (6000 = 6 segundos) */
-		carrusel.style.setProperty( '--duracion', DURACION + 'ms' );
 
+		if ( slides.length < 2 ) { return; }
+		carrusel.style.setProperty( '--duracion', duracion + 'ms' );
+
+		var programar = function () {
+			clearTimeout( temporizador );
+			if ( ! pausado ) {
+				temporizador = setTimeout( function () { mostrar( actual + 1 ); }, duracion );
+			}
+		};
 		var mostrar = function ( n ) {
 			actual = ( n + slides.length ) % slides.length;
 			slides.forEach( function ( s, i ) { s.classList.toggle( 'activa', i === actual ); } );
@@ -65,22 +78,18 @@
 			} );
 			programar();
 		};
-		var programar = function () {
-			clearTimeout( temporizador );
-			if ( ! pausado && slides.length > 1 ) {
-				temporizador = setTimeout( function () { mostrar( actual + 1 ); }, DURACION );
-			}
-		};
 
 		puntos.forEach( function ( p ) {
-			p.addEventListener( 'click', function () { mostrar( parseInt( p.dataset.indice, 10 ) ); } );
+			p.addEventListener( 'click', function () { mostrar( parseInt( p.getAttribute( 'data-indice' ), 10 ) ); } );
 		} );
-		pausa.addEventListener( 'click', function () {
-			pausado = ! pausado;
-			carrusel.classList.toggle( 'pausado', pausado );
-			pausa.setAttribute( 'aria-label', pausado ? 'Reproducir' : 'Pausar' );
-			if ( pausado ) { clearTimeout( temporizador ); } else { mostrar( actual ); }
-		} );
+		if ( pausa ) {
+			pausa.addEventListener( 'click', function () {
+				pausado = ! pausado;
+				carrusel.classList.toggle( 'pausado', pausado );
+				pausa.setAttribute( 'aria-label', pausado ? 'Reproducir' : 'Pausar' );
+				if ( pausado ) { clearTimeout( temporizador ); } else { mostrar( actual ); }
+			} );
+		}
 
 		/* Deslizar con el dedo */
 		var inicioX = null;
@@ -93,7 +102,9 @@
 		} );
 
 		programar();
-	}
+	};
+
+	document.querySelectorAll( '.carrusel' ).forEach( iniciarCarrusel );
 
 	/* ---------- Pie: columnas plegables solo en celular ---------- */
 	var bloques = document.querySelectorAll( '.pie-bloque' );
