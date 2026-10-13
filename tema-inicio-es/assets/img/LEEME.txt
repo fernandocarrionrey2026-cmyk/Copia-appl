@@ -1,0 +1,4 @@
+Pon aquí tus imágenes (por ejemplo iphone.jpg) y escribe su nombre
+en el campo 'imagen' de inc/contenido-inicio.php.
+Tamaño recomendado: 2560 x 1384 px para las secciones grandes
+y 1400 x 1160 px para los cuadros de dos columnas.
