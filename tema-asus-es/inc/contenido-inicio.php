@@ -54,7 +54,7 @@ return array(
 			'subtitulo' => 'Duplica tu potencial',
 			'enlace'    => array( 'texto' => 'Ver más', 'url' => '#' ),
 			'tema'      => 'oscuro',
-			'imagen'    => '',
+			'imagen'    => 'rog-zephyrus-duo.jpg',
 		),
 		array(
 			'titulo'    => 'Zenbook DUO',
@@ -104,7 +104,7 @@ return array(
 			'enlace'    => array( 'texto' => 'Ver más', 'url' => '#' ),
 			'tema'      => 'oscuro',
 			'muestra'   => 'naranja',
-			'imagen'    => '',
+			'imagen'    => 'tuf-gaming-f15.jpg',
 		),
 		array(
 			'titulo'    => 'ASUS Vivobook S16',
@@ -113,7 +113,7 @@ return array(
 			'enlace'    => array( 'texto' => 'Ver más', 'url' => '#' ),
 			'tema'      => 'claro',
 			'muestra'   => 'blanco',
-			'imagen'    => '',
+			'imagen'    => 'vivobook-s16.jpg',
 		),
 		array(
 			'titulo'    => 'ROG STRIX SCAR 18',
@@ -122,7 +122,7 @@ return array(
 			'enlace'    => array( 'texto' => 'Ver más', 'url' => '#' ),
 			'tema'      => 'oscuro',
 			'muestra'   => 'negro',
-			'imagen'    => '',
+			'imagen'    => 'rog-strix-scar-18.jpg',
 		),
 		array(
 			'titulo'    => 'Copilot+PC',
@@ -131,7 +131,7 @@ return array(
 			'enlace'    => array( 'texto' => 'Saber más', 'url' => '#' ),
 			'tema'      => 'claro',
 			'muestra'   => 'gris',
-			'imagen'    => '',
+			'imagen'    => 'copilot-pc.jpg',
 		),
 	),
 
