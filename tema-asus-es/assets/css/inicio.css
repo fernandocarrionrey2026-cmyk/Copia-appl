@@ -85,6 +85,7 @@ img { max-width: 100%; height: auto; }
 
 .logo:hover { text-decoration: none; }
 .logo img { max-height: 22px; width: auto; }
+.logo .logo-tema { display: block; height: 18px; }
 
 .logo-texto {
 	font-size: 20px;
@@ -531,6 +532,11 @@ img { max-width: 100%; height: auto; }
 	.controles { gap: 10px; }
 
 	.cuadros { grid-template-columns: 1fr; }
+	.cuadro { padding: 26px 16px 22px; }
+	.cuadro h3 { font-size: 26px; }
+	.cuadro-arriba p { font-size: 13px; }
+	.cuadro-texto { max-width: 300px; margin-bottom: 10px; font-size: 13px; }
+	.cuadro .ver-mas { font-size: 15px; }
 
 	.pie-contenido { padding-top: 10px; }
 	.pie-columnas { display: block; }

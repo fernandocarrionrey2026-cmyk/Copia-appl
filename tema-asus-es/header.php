@@ -22,8 +22,10 @@ $contenido = require get_template_directory() . '/inc/contenido-inicio.php';
 	<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 		<?php if ( has_custom_logo() ) : ?>
 			<?php echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full' ); ?>
+		<?php elseif ( asus_es_imagen( 'logo.svg' ) ) : ?>
+			<!-- Logo del tema (assets/img/logo.svg). Se reemplaza si subes uno en Apariencia > Personalizar > Identidad del sitio -->
+			<img class="logo-tema" src="<?php echo esc_url( asus_es_imagen( 'logo.svg' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" width="83" height="18">
 		<?php else : ?>
-			<!-- Logo de muestra: cámbialo en Apariencia > Personalizar > Identidad del sitio -->
 			<span class="logo-texto">MI LOGO</span>
 		<?php endif; ?>
 	</a>
