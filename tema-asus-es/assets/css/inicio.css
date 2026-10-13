@@ -1,0 +1,545 @@
+/* ==========================================================
+   Colores y tipografía (cámbialos aquí para todo el sitio)
+   ========================================================== */
+:root {
+	--fuente: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+	--texto: #181818;
+	--texto-suave: #4a4a4a;
+	--fondo: #ffffff;
+	--fondo-gris: #f4f4f4;
+	--linea: #e2e2e2;
+	--celeste: #1a9fe0;   /* enlaces "Ver más" de los cuadros */
+	--azul: #006ce1;      /* botón "Regístrate" y enlaces */
+	--azul-hover: #0058b8;
+
+	--cabecera-alto: 54px;
+	--menu-ancho: 276px;
+}
+
+/* ==========================================================
+   Base
+   ========================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	font-family: var(--fuente);
+	font-size: 16px;
+	line-height: 1.4;
+	color: var(--texto);
+	background: var(--fondo);
+	-webkit-font-smoothing: antialiased;
+}
+
+body.menu-abierto { overflow: hidden; }
+
+a { color: var(--azul); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { font: inherit; color: inherit; }
+
+img { max-width: 100%; height: auto; }
+
+[hidden] { display: none !important; }
+
+/* ==========================================================
+   Cabecera
+   ========================================================== */
+.cabecera {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: var(--cabecera-alto);
+	padding: 0 10px;
+	background: #fff;
+	border-bottom: 1px solid var(--linea);
+}
+
+.admin-bar .cabecera { top: 32px; }
+
+.cabecera-boton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: #333;
+	cursor: pointer;
+}
+
+.logo {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	color: var(--texto);
+}
+
+.logo:hover { text-decoration: none; }
+.logo img { max-height: 22px; width: auto; }
+
+.logo-texto {
+	font-size: 20px;
+	font-weight: 800;
+	font-style: italic;
+	letter-spacing: 0.04em;
+}
+
+/* ==========================================================
+   Menú lateral
+   ========================================================== */
+.velo {
+	position: fixed;
+	inset: 0;
+	z-index: 90;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.menu-lateral {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	width: var(--menu-ancho);
+	max-width: 85vw;
+	overflow-y: auto;
+	background: #fff;
+	transform: translateX(-100%);
+	transition: transform 0.3s ease;
+}
+
+.menu-abierto .menu-lateral { transform: none; }
+
+.cerrar-menu {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: var(--cabecera-alto);
+	padding: 0 14px;
+	border: 0;
+	border-bottom: 1px solid var(--linea);
+	background: none;
+	color: #333;
+	cursor: pointer;
+}
+
+.menu-grupo {
+	margin: 0;
+	padding: 18px 0;
+	list-style: none;
+	border-bottom: 1px solid var(--linea);
+}
+
+.menu-grupo:last-of-type { border-bottom: 0; }
+
+.menu-enlace,
+.menu-wp > li > a {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	padding: 9px 18px;
+	border: 0;
+	background: none;
+	font-size: 15px;
+	color: #333;
+	text-align: left;
+	cursor: pointer;
+}
+
+.menu-enlace:hover,
+.menu-wp > li > a:hover { background: var(--fondo-gris); text-decoration: none; }
+
+.menu-enlace > span:first-of-type { flex: 1; }
+.menu-enlace svg + span { flex: 1; }
+
+.chispa { color: var(--azul); font-size: 9px; margin-left: 2px; }
+
+.flechita { font-size: 22px; line-height: 1; color: #555; }
+
+/* El "+" que se convierte en "−" al desplegar */
+.signo,
+.menu-wp .tiene-hijos::after {
+	position: relative;
+	width: 12px;
+	height: 12px;
+	flex: none;
+}
+
+.signo::before,
+.signo::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 5.5px;
+	width: 12px;
+	height: 1px;
+	background: #555;
+	transition: transform 0.2s;
+}
+
+.signo::after { transform: rotate(90deg); }
+[aria-expanded="true"] .signo::after { transform: rotate(0deg); }
+
+.menu-wp .tiene-hijos::after { content: "+"; margin-left: auto; color: #555; }
+.menu-wp .tiene-hijos.desplegado::after { content: "−"; }
+
+.submenu,
+.menu-wp .sub-menu {
+	margin: 0;
+	padding: 2px 0 8px;
+	list-style: none;
+	background: #fafafa;
+}
+
+.submenu a,
+.menu-wp .sub-menu a {
+	display: block;
+	padding: 7px 18px 7px 34px;
+	font-size: 14px;
+	color: var(--texto-suave);
+}
+
+/* ==========================================================
+   Franja de aviso
+   ========================================================== */
+.aviso {
+	padding: 15px 16px;
+	background: var(--fondo-gris);
+	font-size: 16px;
+	text-align: center;
+}
+
+/* ==========================================================
+   Carrusel
+   ========================================================== */
+.carrusel {
+	position: relative;
+	height: 716px;
+	overflow: hidden;
+	background: #000;
+}
+
+.diapositiva {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	padding-bottom: 72px;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.6s, visibility 0.6s;
+}
+
+.diapositiva.activa { opacity: 1; visibility: visible; }
+
+/* Las diapositivas claras llevan el texto arriba, como "Zenbook DUO" */
+.diapositiva.tema-claro { justify-content: flex-start; padding: 60px 0 0; }
+
+.diapositiva-texto { position: relative; z-index: 1; padding: 0 16px; }
+
+.diapositiva h2 {
+	margin: 0;
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: 0.01em;
+}
+
+.diapositiva.tema-claro h2 { font-weight: 400; font-size: 46px; }
+
+.diapositiva p {
+	margin: 10px 0 0;
+	font-size: 30px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+.diapositiva .ver-mas { display: inline-block; margin-top: 30px; font-size: 16px; }
+
+.tema-oscuro { color: #fff; }
+.tema-oscuro .ver-mas { color: #fff; }
+.tema-claro { color: var(--texto); }
+.tema-claro .diapositiva-texto .ver-mas { color: var(--texto); }
+
+/* Controles: barra de progreso, círculos y pausa */
+.controles {
+	position: absolute;
+	left: 50%;
+	bottom: 18px;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 4px 10px;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.85);
+	transform: translateX(-50%);
+}
+
+.punto {
+	position: relative;
+	width: 10px;
+	height: 10px;
+	padding: 0;
+	border: 1px solid #666;
+	border-radius: 10px;
+	background: transparent;
+	overflow: hidden;
+	cursor: pointer;
+	transition: width 0.3s;
+}
+
+.punto.activo { width: 110px; border-color: #bbb; background: #ccc; }
+
+.punto .progreso {
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: 0;
+	background: #333;
+	border-radius: 10px;
+}
+
+.punto.activo .progreso { animation: progreso 6s linear forwards; }
+.pausado .punto.activo .progreso { animation-play-state: paused; }
+
+@keyframes progreso { to { width: 100%; } }
+
+.pausa {
+	display: flex;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: #333;
+	cursor: pointer;
+}
+
+.pausa .icono-play { display: none; }
+.pausado .pausa .icono-play { display: block; }
+.pausado .pausa .icono-pausa { display: none; }
+
+/* ==========================================================
+   Cuadros de dos columnas
+   ========================================================== */
+.cuadros {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 13px;
+	padding: 13px;
+}
+
+.cuadro {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	aspect-ratio: 520 / 510;
+	padding: 36px 20px 40px;
+	overflow: hidden;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.cuadro-arriba,
+.cuadro-abajo { position: relative; z-index: 1; }
+
+.cuadro h3 {
+	margin: 0;
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+
+.cuadro.tema-claro h3 { font-weight: 500; }
+
+.cuadro-arriba p { margin: 4px 0 0; font-size: 15px; font-weight: 500; }
+
+.cuadro-texto {
+	max-width: 440px;
+	margin: 0 auto 22px;
+	font-size: 19px;
+	line-height: 1.3;
+}
+
+.cuadro .ver-mas { font-size: 17px; color: var(--celeste); }
+.cuadro .ver-mas span { font-weight: 700; }
+
+/* ==========================================================
+   Fondos de muestra (solo mientras no pongas una imagen).
+   Imitan los colores de las fotos de la página original.
+   ========================================================== */
+.muestra-slide-0:not([style]) { background: radial-gradient(ellipse at 55% 35%, #6d5bd0 0, #2c2f6b 30%, #0f1430 65%, #05060f); }
+.muestra-slide-1:not([style]) { background: linear-gradient(180deg, #d9d9d9, #a9a9a9 70%, #7d7d7d); }
+.muestra-slide-2:not([style]) { background: radial-gradient(ellipse at 50% 60%, #3a3a3a 0, #111 45%, #000); }
+.muestra-slide-3:not([style]) { background: linear-gradient(135deg, #fff 0, #fff3c9 40%, #c9d8ff 75%, #fff); }
+.muestra-slide-4:not([style]) { background: radial-gradient(ellipse at 60% 45%, #f4a236 0, #9a5a17 45%, #3a210a); }
+.muestra-slide-5:not([style]) { background: linear-gradient(180deg, #f6f6f6, #e6e6e6); }
+
+.muestra-naranja:not([style]) { background: radial-gradient(ellipse at 65% 40%, #f6a637 0, #a8621a 45%, #4a2a0c); }
+.muestra-blanco:not([style])  { background: linear-gradient(135deg, #fff 10%, #ffe9a6 35%, #fff 50%, #cfdcff 70%, #fff 90%); }
+.muestra-negro:not([style])   { background: radial-gradient(ellipse at 50% 70%, #3b3b3b 0, #0d0d0d 45%, #000); }
+.muestra-gris:not([style])    { background: #f4f4f4; }
+
+/* Silueta de laptop de muestra */
+.diapositiva:not([style])::before,
+.cuadro:not([style])::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 48%;
+	width: min(46%, 520px);
+	aspect-ratio: 16 / 10;
+	border: 6px solid #2a2a2a;
+	border-radius: 10px;
+	background: linear-gradient(135deg, #7b6cff, #3fb6ff 50%, #ff6fb1);
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+	transform: translate(-50%, -50%) perspective(900px) rotateX(8deg);
+}
+
+.diapositiva:not([style])::before { top: 40%; width: min(40%, 460px); }
+.cuadro:not([style])::before { width: 56%; top: 50%; }
+.muestra-gris:not([style])::before { width: 48%; top: 46%; }
+.diapositiva.tema-claro:not([style])::before { top: 62%; }
+
+/* ==========================================================
+   Pie de página
+   ========================================================== */
+.pie {
+	margin-top: 70px;
+	background: var(--fondo-gris);
+	font-size: 14px;
+	color: var(--texto-suave);
+}
+
+.pie-contenido { padding: 30px 14px 34px; }
+
+.pie-columnas {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	gap: 24px;
+}
+
+.pie-bloque summary {
+	list-style: none;
+	margin-bottom: 18px;
+	font-size: 15px;
+	font-weight: 500;
+	color: var(--texto);
+	cursor: default;
+}
+
+.pie-bloque summary::-webkit-details-marker { display: none; }
+
+.pie-sublistas { display: grid; grid-template-columns: repeat(var(--subcolumnas, 1), 1fr); gap: 24px; }
+.pie-bloque.ancho-2 .pie-sublistas { --subcolumnas: 2; }
+
+.pie-sublistas ul { margin: 0; padding: 0; list-style: none; }
+.pie-sublistas li { margin-bottom: 14px; }
+
+.pie a { color: var(--texto-suave); }
+.pie a.negrita { color: var(--texto); font-weight: 500; }
+
+.boletin { margin-top: 36px; }
+
+.boletin-titulo { margin: 0 0 10px; font-size: 15px; font-weight: 500; color: var(--texto); }
+
+.boletin-form { display: flex; flex-wrap: wrap; gap: 9px; }
+
+.boletin-form input {
+	width: 264px;
+	max-width: 100%;
+	height: 44px;
+	padding: 0 13px;
+	border: 1px solid #333;
+	border-radius: 6px;
+	background: #fff;
+	font: inherit;
+	font-size: 15px;
+}
+
+.boletin-form button {
+	height: 44px;
+	padding: 0 18px;
+	border: 0;
+	border-radius: 6px;
+	background: var(--azul);
+	color: #fff;
+	font-size: 17px;
+	cursor: pointer;
+}
+
+.boletin-form button:hover { background: var(--azul-hover); }
+
+.pie-final {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px 26px;
+	margin-top: 26px;
+	padding-top: 22px;
+	border-top: 1px solid #dcdcdc;
+}
+
+.pie-legales { display: flex; margin: 0; padding: 0; list-style: none; }
+.pie-legales li + li { border-left: 1px solid #c8c8c8; }
+.pie-legales a { padding: 0 13px; color: var(--texto); }
+.pie-legales li:first-child a { padding-left: 0; }
+
+.pie-pais { display: flex; align-items: center; gap: 6px; margin-left: auto; color: var(--texto) !important; }
+
+/* Contenido de otras páginas */
+.contenido-general { max-width: 980px; margin: 0 auto; padding: 60px 16px; }
+
+/* ==========================================================
+   Tablet y celular
+   ========================================================== */
+@media (max-width: 1023px) {
+	.carrusel { height: 600px; }
+	.diapositiva h2 { font-size: 40px; }
+	.diapositiva p { font-size: 24px; }
+	.cuadro h3 { font-size: 26px; }
+	.cuadro-texto { font-size: 16px; }
+}
+
+@media (max-width: 767px) {
+	.aviso { font-size: 14px; }
+
+	.carrusel { height: 520px; }
+	.diapositiva { padding-bottom: 64px; }
+	.diapositiva.tema-claro { padding-top: 40px; }
+	.diapositiva h2 { font-size: 30px; }
+	.diapositiva.tema-claro h2 { font-size: 32px; }
+	.diapositiva p { font-size: 19px; }
+	.punto.activo { width: 70px; }
+	.controles { gap: 10px; }
+
+	.cuadros { grid-template-columns: 1fr; }
+
+	.pie-contenido { padding-top: 10px; }
+	.pie-columnas { display: block; }
+	.pie-bloque { border-bottom: 1px solid #dcdcdc; }
+	.pie-bloque summary { position: relative; margin: 0; padding: 16px 0; cursor: pointer; }
+	.pie-bloque summary::after { content: "+"; position: absolute; right: 0; font-weight: 400; }
+	.pie-bloque[open] summary::after { content: "−"; }
+	.pie-sublistas { display: block; padding-bottom: 6px; }
+
+	.pie-final { flex-direction: column; align-items: flex-start; }
+	.pie-pais { margin-left: 0; order: -1; }
+}

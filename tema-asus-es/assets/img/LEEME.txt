@@ -1,0 +1,4 @@
+Pon aquí tus imágenes (por ejemplo zephyrus.jpg) y escribe su nombre
+en el campo 'imagen' de inc/contenido-inicio.php.
+Tamaño recomendado: 1920 x 716 px para el carrusel
+y 1040 x 1020 px para los cuadros de dos columnas.

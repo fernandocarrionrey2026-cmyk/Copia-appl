@@ -1,0 +1,13 @@
+/*
+Theme Name: Inicio Estilo ASUS (ES)
+Theme URI: https://example.com/
+Author: Fernando Carrión
+Description: Tema de práctica que recrea la estructura de la página de inicio de asus.com/ec en español. Proyecto personal, no oficial y sin relación con ASUSTeK Computer Inc.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GPLv2 or later
+Text Domain: asus-es
+*/
+
+/* Los estilos principales están en assets/css/inicio.css */
